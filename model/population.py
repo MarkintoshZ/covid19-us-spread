@@ -38,7 +38,7 @@ class Population:
     """
     self_recover_rate = 0.9
     self_recover_time = 4     # iterations (days)
-    infection_rate = 0.436      # possibility of getting infected by 1 person in 1 iteration
+    infection_rate = 0.5      # possibility of getting infected by 1 person in 1 iteration
     confirm_rate = 0.2        # percentage of infected turns into confirmed case after self_recover_time
     death_rate = confirm_rate*0.019         # percentage of infected turns into death after self_recover_time
 
@@ -64,8 +64,9 @@ class Population:
         return n
 
     def set_confirmed(self, n):
-        confirmed = self._add_sick_count(n)
-        self.confirmed = confirmed * Population.confirm_rate
+        sick = n / Population.confirm_rate
+        sick = self._add_sick_count(sick)
+        self.confirmed = sick * Population.confirm_rate
 
     def spread(self, new_infected=None):
         """spread() -> None

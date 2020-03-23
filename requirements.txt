@@ -1,0 +1,7 @@
+numpy==1.18.1
+tqdm==4.29.1
+plotly==4.4.1
+streamlit==0.56.0
+pandas==1.0.3
+selenium==3.141.0
+beautifulsoup4==4.8.2
